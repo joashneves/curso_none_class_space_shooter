@@ -48,10 +48,11 @@ public class PlayerController : MonoBehaviour
     {
         Debug.LogWarning($"Perdeu vida {life}");
         life -= damage;
-        if (life <= 0)
+        if (life < 0)
         {
             Instantiate(explosionDeath, transform.position, transform.rotation);
             Destroy(gameObject);
+
         }
     }
 }

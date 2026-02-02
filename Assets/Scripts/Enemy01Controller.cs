@@ -42,7 +42,7 @@ public class Enemy01Controller : Enemy
     private void Shooter()
     {
         bool sprite = GetComponentInChildren<SpriteRenderer>().isVisible;
-        Debug.LogWarning(sprite);
+        //Debug.LogWarning(sprite);
         timerShoot -= Time.deltaTime;
         var player = FindAnyObjectByType<PlayerController>();
 

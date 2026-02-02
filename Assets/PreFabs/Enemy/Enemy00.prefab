@@ -192,6 +192,9 @@ MonoBehaviour:
   velocity: 2
   explosion: {fileID: 4386255576271795572, guid: 81e1124c13d08c843bab4942bf71e9db, type: 3}
   shoot: {fileID: 6771781074782398999, guid: f448bc1e7bd1b8645ac01821598435d0, type: 3}
+  velocityShooter: -2
+  pontos: 5
+  shoot: {fileID: 6771781074782398999, guid: f448bc1e7bd1b8645ac01821598435d0, type: 3}
   posShoot: {fileID: 3006097644924614357}
 --- !u!70 &6507599625846003731
 CapsuleCollider2D:

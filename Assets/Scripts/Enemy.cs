@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject explosion;
     [SerializeField] protected GameObject shoot;
     [SerializeField] protected float velocityShooter;
+    [SerializeField] protected int pontos;
     protected float timerShoot = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -24,13 +25,23 @@ public class Enemy : MonoBehaviour
     
     public void Damage(int damage)
     {
-        Debug.LogWarning("Perdeu vida");
-        life-=damage;
-        if(life <= 0)
+        bool sprite = GetComponentInChildren<SpriteRenderer>().isVisible;
+        if (sprite)
         {
-            Destroy(gameObject);    
-            Instantiate(explosion, transform.position, transform.rotation);
+            Debug.LogWarning($"Inimigo Perdeu vida : {life}");
+            life-=damage;
+            if(life <= 0)
+            {
+                Destroy(gameObject);
+                Instantiate(explosion, transform.position, transform.rotation);
+                FindAnyObjectByType<SpawnEnemy>().GanhaPonto(pontos);
+            }
         }
+    }
+    private void OnDestroy()
+    {
+        Debug.Log("Inimigo se destruiu");
+        FindAnyObjectByType<SpawnEnemy>().DiminuiQuantidade();  
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

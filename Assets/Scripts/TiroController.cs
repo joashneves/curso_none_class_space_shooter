@@ -21,7 +21,7 @@ public class TiroController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Enemy"))
+        if (collision.CompareTag("Enemy00"))
         {
             collision.GetComponent<Enemy>().Damage(1);   
         }
@@ -30,7 +30,7 @@ public class TiroController : MonoBehaviour
         {
             collision.GetComponent<PlayerController>().Damage(1);   
         }
-        Debug.Log("APAGADO");
+        //Debug.Log("APAGADO");
         Destroy(gameObject);
 
         Instantiate(impact, transform.position, transform.rotation);
