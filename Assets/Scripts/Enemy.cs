@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float velocity;
     [SerializeField] protected GameObject explosion;
     [SerializeField] protected GameObject shoot;
+    [SerializeField] protected GameObject powerUp;
     [SerializeField] protected float velocityShooter;
     [SerializeField] protected int pontos;
     protected float timerShoot = 1f;
@@ -34,6 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
+                
                 FindAnyObjectByType<SpawnEnemy>().GanhaPonto(pontos);
             }
         }
@@ -52,7 +54,12 @@ public class Enemy : MonoBehaviour
         if (other.CompareTag("SpaceShip"))
         {
             other.GetComponent<PlayerController>().Damage(1);   
+
+            GameObject pU = Instantiate(powerUp, transform.position, transform.rotation);
+            Destroy(pU, 3f);
             Destroy(gameObject);
+
+            pU.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up;
         }
     }
 }

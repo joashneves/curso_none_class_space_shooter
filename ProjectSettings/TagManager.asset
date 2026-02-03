@@ -8,6 +8,7 @@ TagManager:
   - SpaceShip
   - Enemy00
   - Destruidor
+  - PowerUp
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Player
   - TiroPlayer
   - TiroInimigo
-  - 
+  - PowerUp
   - 
   - 
   - 
@@ -53,6 +54,9 @@ TagManager:
     locked: 0
   - name: Enemy
     uniqueID: 3289901005
+    locked: 0
+  - name: powerUp
+    uniqueID: 1796424489
     locked: 0
   m_RenderingLayers:
   - Default

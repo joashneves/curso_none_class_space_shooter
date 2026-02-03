@@ -50,10 +50,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   velocity: 5
   myShot: {fileID: 1068217170467083637, guid: 6ea9a301693e3b34b99e9e1d4cbbc90b, type: 3}
+  myShot2: {fileID: 6336001804979317882, guid: 339b6ffa5ca235245899a37c9404d24d, type: 3}
   posShoot: {fileID: 8576315375808295862}
   life: 5
   explosionDeath: {fileID: 846491494180254309, guid: 1d78c7e161b0e0e45924091cf08fbf6d, type: 3}
   velocityShooter: 10
+  xLimite: 0
+  yLimite: 0
+  levelTiro: 1
 --- !u!50 &7300164970171126178
 Rigidbody2D:
   serializedVersion: 5

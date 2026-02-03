@@ -7,7 +7,7 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField]private int pontos = 0;
     [SerializeField]private int level = 1;
     [SerializeField]private int baseLevel = 100;
-    [SerializeField] private int quantidadeDeInimigos = 4;
+    [SerializeField] private int quantidadeDeInimigos = 0;
     private float esperaInimigos = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,6 +45,7 @@ public class SpawnEnemy : MonoBehaviour
         {
 
             int quantidade = level * 3;
+            //int quantidadeDeInimigos = 0;
             
             while (quantidadeDeInimigos < quantidade)
             {
@@ -64,7 +65,7 @@ public class SpawnEnemy : MonoBehaviour
                 Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(5.99f, 11f), 0f);
                 Instantiate(inimigoCriados, posicao, transform.rotation);
 
-                //quantidadeDeInimigos++;
+                quantidadeDeInimigos++;
                 esperaInimigos = tempoDeEspera;
             }
         }
