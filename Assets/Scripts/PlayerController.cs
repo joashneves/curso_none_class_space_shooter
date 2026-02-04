@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject myShot;
     [SerializeField] private GameObject myShot2;
     [SerializeField] private Transform posShoot;
+    [SerializeField] private GameObject escudo;
+    [SerializeField] private int quantidadeDeEscudo = 3;
     [SerializeField] private int life = 5;
     [SerializeField] private GameObject explosionDeath;
     [SerializeField] private float velocityShooter = 10f;
@@ -13,7 +15,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float yLimite;
     [SerializeField] private int levelTiro = 1;
     private Rigidbody2D myRigidbody;
-
+    private GameObject escudoAtual;
+    private float escudoTempo;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -54,16 +57,30 @@ public class PlayerController : MonoBehaviour
                     CriarTiro(myShot, posShoot.position);
                     break;
                 case 2:
-                    CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f,posShoot.position.y - 0.5f ));
-                     CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f,posShoot.position.y - 0.5f ));
-                break;
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
+                    break;
                 case 3:
-                    CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f,posShoot.position.y - 0.5f ));
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
                     CriarTiro(myShot, posShoot.position);
-                     CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f,posShoot.position.y - 0.5f ));
-                break;
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
+                    break;
             }
-
+        }
+        if (Input.GetButtonDown("Shield") && !escudoAtual && quantidadeDeEscudo > 0)
+        {
+            escudoAtual = Instantiate(escudo, transform.position, transform.rotation);
+            quantidadeDeEscudo--;
+        }
+        if (escudoAtual)
+        {
+            escudoTempo += Time.deltaTime;
+            if (escudoAtual) escudoAtual.transform.position = transform.position;
+            if (escudoTempo > 6.2f)
+            {
+                Destroy(escudoAtual);
+                escudoTempo = 0f;
+            }
         }
 
     }
@@ -86,14 +103,14 @@ public class PlayerController : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-            if (other.CompareTag("PowerUp"))
+        if (other.CompareTag("PowerUp"))
         {
-            if(levelTiro < 3)
+            if (levelTiro < 3)
             {
                 levelTiro++;
             }
             Destroy(other.gameObject);
         }
-        
+
     }
 }

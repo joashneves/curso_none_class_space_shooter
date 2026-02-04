@@ -35,6 +35,13 @@ public class SpawnEnemy : MonoBehaviour
             level ++;
         }
     }
+    private bool ChecarInimigo(Vector3 posicao, Vector3 size)
+    {
+        // checando se a posicao tem alguem
+        Collider2D hit = Physics2D.OverlapBox(posicao, size, 0f);
+        if(hit != null) return true;
+        return false;
+    }
     private void GerarInimigo()
     {
         if (esperaInimigos > 0)
@@ -46,9 +53,13 @@ public class SpawnEnemy : MonoBehaviour
 
             int quantidade = level * 3;
             //int quantidadeDeInimigos = 0;
+            int tentativas = 0;
             
             while (quantidadeDeInimigos < quantidade)
             {
+                // aumentando as tentativas
+                tentativas++;
+                if(tentativas > 200) break;
                 GameObject inimigoCriados;
 
                 float chance = Random.Range(0f, level);
@@ -61,8 +72,9 @@ public class SpawnEnemy : MonoBehaviour
                 {
                     inimigoCriados = enemys[0];
                 }
-
+                
                 Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(5.99f, 11f), 0f);
+                if( ChecarInimigo(posicao, inimigoCriados.transform.localScale )) continue;
                 Instantiate(inimigoCriados, posicao, transform.rotation);
 
                 quantidadeDeInimigos++;

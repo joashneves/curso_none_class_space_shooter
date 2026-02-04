@@ -23,7 +23,10 @@ public class TiroController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy00"))
         {
-            collision.GetComponent<Enemy>().Damage(1);   
+            var inimigo = collision.GetComponent<Enemy>(); 
+            inimigo.Damage(1);
+
+            inimigo.DropaItem();
         }
         
         if (collision.CompareTag("SpaceShip"))

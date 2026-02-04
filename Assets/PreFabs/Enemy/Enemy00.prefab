@@ -195,6 +195,7 @@ MonoBehaviour:
   powerUp: {fileID: 5429223678636646632, guid: 3c36c59fbe9aa8144ae50a4092445369, type: 3}
   velocityShooter: -2
   pontos: 5
+  itemRate: 0.95
   shoot: {fileID: 6771781074782398999, guid: f448bc1e7bd1b8645ac01821598435d0, type: 3}
   posShoot: {fileID: 3006097644924614357}
 --- !u!70 &6507599625846003731

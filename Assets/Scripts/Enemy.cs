@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -10,6 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected GameObject powerUp;
     [SerializeField] protected float velocityShooter;
     [SerializeField] protected int pontos;
+    [SerializeField] protected float itemRate;
     protected float timerShoot = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
-                
+                DropaItem();
                 FindAnyObjectByType<SpawnEnemy>().GanhaPonto(pontos);
             }
         }
@@ -43,23 +43,34 @@ public class Enemy : MonoBehaviour
     private void OnDestroy()
     {
         Debug.Log("Inimigo se destruiu");
-        FindAnyObjectByType<SpawnEnemy>().DiminuiQuantidade();  
+        var gerador = FindAnyObjectByType<SpawnEnemy>();
+        if(gerador) gerador.DiminuiQuantidade();  
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Destruidor"))
         {
             Destroy(gameObject);
+            Instantiate(explosion, transform.position, transform.rotation);
         }
         if (other.CompareTag("SpaceShip"))
         {
             other.GetComponent<PlayerController>().Damage(1);   
-
+            //DropaItem();
+        }
+    }
+    public void DropaItem()
+    {   
+        float chance = Random.Range(0f, 1f);
+        if (chance > itemRate)
+        {
             GameObject pU = Instantiate(powerUp, transform.position, transform.rotation);
             Destroy(pU, 3f);
             Destroy(gameObject);
 
-            pU.GetComponent<Rigidbody2D>().linearVelocity = Vector2.up;
+            Vector2 dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+
+            pU.GetComponent<Rigidbody2D>().linearVelocity = dir;
         }
     }
 }

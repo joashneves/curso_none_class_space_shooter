@@ -10469,10 +10469,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6321516458301091292, guid: 6e71e43b24f978f4aa2a6896d70fb323, type: 3}
-      propertyPath: level
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6321516458301091292, guid: 6e71e43b24f978f4aa2a6896d70fb323, type: 3}
       propertyPath: quantidadeDeInimigos
       value: 0
       objectReference: {fileID: 0}

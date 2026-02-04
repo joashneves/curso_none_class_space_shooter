@@ -35,6 +35,7 @@ public class Enemy01Controller : Enemy
                 myRigidbody.linearVelocity = Vector2.right * velocity;
                 ///moveOn = false;
             }
+            myRigidbody.linearVelocity = Vector2.up * velocity;
             moveOn = false;
             
         }
