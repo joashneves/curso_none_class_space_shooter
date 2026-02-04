@@ -8,6 +8,8 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField]private int level = 1;
     [SerializeField]private int baseLevel = 100;
     [SerializeField] private int quantidadeDeInimigos = 0;
+    [SerializeField] private GameObject bossAnimation;
+    private bool criouBoss = false;
     private float esperaInimigos = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -20,8 +22,28 @@ public class SpawnEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(level < 10)
+        {
         GerarInimigo();
+        }
+        else
+        {
+            GerarBoss();
+        }
 
+    }
+    private void GerarBoss()
+    {
+        if(quantidadeDeInimigos <= 0 && tempoDeEspera > 0)
+        {
+            tempoDeEspera -= Time.deltaTime;
+        }
+        if (!criouBoss && tempoDeEspera <= 0)
+        {
+            GameObject animacaoBossObjeto = Instantiate(bossAnimation, Vector3.zero, transform.rotation);
+            Destroy(animacaoBossObjeto, 6.2f);
+            criouBoss = true;
+        }
     }
     public void DiminuiQuantidade()
     {
@@ -72,7 +94,7 @@ public class SpawnEnemy : MonoBehaviour
                 {
                     inimigoCriados = enemys[0];
                 }
-                
+
                 Vector3 posicao = new Vector3(Random.Range(-8f, 8f), Random.Range(5.99f, 11f), 0f);
                 if( ChecarInimigo(posicao, inimigoCriados.transform.localScale )) continue;
                 Instantiate(inimigoCriados, posicao, transform.rotation);

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -64,7 +65,14 @@ public class PlayerController : MonoBehaviour
                     CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
                     CriarTiro(myShot, posShoot.position);
                     CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
-                    break;
+                break;
+                case 4:
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
+                    CriarTiro(myShot, posShoot.position);
+                    CriarTiroSecundario(myShot,  new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f), -60);
+                    CriarTiroSecundario(myShot,  new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f), 60);
+                    CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
+                break;
             }
         }
         if (Input.GetButtonDown("Shield") && !escudoAtual && quantidadeDeEscudo > 0)
@@ -84,8 +92,21 @@ public class PlayerController : MonoBehaviour
         }
 
     }
+    private void CriarTiroSecundario(GameObject tiroCriado, Vector3 pos, float rotacao)
+    {
+        //Quaternion rotation = transform.rotation;
+        // Pega rotacao
+        GameObject shooter = Instantiate(tiroCriado, pos, transform.rotation);
+        shooter.transform.rotation = Quaternion.Euler(0f,0f, rotacao);
+        int positivoOuNegativo = Math.Sign(rotacao);
+        shooter.GetComponent<Transform>().rotation = Quaternion.Euler(0f, 0f, rotacao);
+        shooter.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(velocityShooter* positivoOuNegativo, velocityShooter);
+
+
+    }
     private void CriarTiro(GameObject tiroCriado, Vector3 pos)
     {
+        //Quaternion rotation = transform.rotation;
         GameObject shooter = Instantiate(tiroCriado, pos, transform.rotation);
         shooter.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0f, velocityShooter);
 
@@ -105,7 +126,7 @@ public class PlayerController : MonoBehaviour
     {
         if (other.CompareTag("PowerUp"))
         {
-            if (levelTiro < 3)
+            if (levelTiro < 4)
             {
                 levelTiro++;
             }

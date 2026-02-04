@@ -200,5 +200,5 @@ MonoBehaviour:
   powerUp: {fileID: 5429223678636646632, guid: 3c36c59fbe9aa8144ae50a4092445369, type: 3}
   velocityShooter: 3
   pontos: 10
-  itemRate: 0.9
+  itemRate: 0.95
   yMax: 2.5

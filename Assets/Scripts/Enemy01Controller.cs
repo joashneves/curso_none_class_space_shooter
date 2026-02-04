@@ -28,14 +28,13 @@ public class Enemy01Controller : Enemy
         {
             if(transform.position.x < 0f && moveOn)
             {
-                myRigidbody.linearVelocity = Vector2.left * velocity;
+                 myRigidbody.linearVelocity = new Vector2(-velocity, velocity);
                 //moveOn = false;
             } else
             {
-                myRigidbody.linearVelocity = Vector2.right * velocity;
+                myRigidbody.linearVelocity = new Vector2(velocity, velocity);
                 ///moveOn = false;
             }
-            myRigidbody.linearVelocity = Vector2.up * velocity;
             moveOn = false;
             
         }
