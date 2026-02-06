@@ -328,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 676c8fa24fb6d3548b4815237034c35a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossController
-  life: 100
+  life: 1000
   velocity: 2
   explosion: {fileID: 1185070288561835142, guid: f862dffab9e26a34b8f41d3c46694979, type: 3}
   shoot: {fileID: 6771781074782398999, guid: f448bc1e7bd1b8645ac01821598435d0, type: 3}
@@ -337,7 +337,7 @@ MonoBehaviour:
   pontos: 200
   itemRate: 1
   meuSom: {fileID: 8300000, guid: c84980229b0e72744a9ce51bc4dd0449, type: 3}
-  lifeMax: 100
+  lifeMax: 1000
   estado: estado1
   myRigidbody: {fileID: 0}
   limitHorizontal: 6

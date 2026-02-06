@@ -5,21 +5,21 @@ using UnityEngine.UI;
 public class BossController : Enemy
 {
     [Header("info-manções")]
-    [SerializeField]private int lifeMax = 100;
+    [SerializeField]private int lifeMax = 1000;
     [SerializeField] private string estado = "estado1";
     [SerializeField] private Rigidbody2D myRigidbody;
     [SerializeField] private float limitHorizontal = 6f;
     [SerializeField] private bool direita = true;
     [SerializeField] private string[] listaDeEstado;
-    [SerializeField] private float esperaEstado = 10f;
+    [SerializeField] private float esperaEstado = 2f;
     [Header("informacoes dos tiros")]
     [SerializeField] private Transform posTiroUm;
     [SerializeField] private Transform posTiroDois;
     [SerializeField] private Transform posTiroTres;
     [SerializeField] private GameObject tiroUm;
     [SerializeField] private GameObject tiroDois;
-    [SerializeField] private float delayShoot = 2f;
-    [SerializeField] private float timerShoot01 = 4;
+    [SerializeField] private float delayShoot = 1f;
+    [SerializeField] private float timerShoot01 = 1f;
     [SerializeField] private float delayShoot01 = 1f;
      [Header("Informações do UI")]
     [SerializeField] private Image barraDeVidaDoBoss;

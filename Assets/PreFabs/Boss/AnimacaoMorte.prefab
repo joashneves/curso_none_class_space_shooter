@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2303901929052052677}
   - component: {fileID: 5214233698232312315}
   - component: {fileID: 5222167106389047982}
+  - component: {fileID: 1141852558851184744}
   m_Layer: 0
   m_Name: boss_combate_0
   m_TagString: Untagged
@@ -146,3 +147,16 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1141852558851184744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6364666752481696768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6fe1179c446d864981483affc450fde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacaoBoss
+  boss: {fileID: 0}

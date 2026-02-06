@@ -146,7 +146,22 @@ public class PlayerController : MonoBehaviour
         {
             if (levelTiro < 4)
             {
-                levelTiro++;
+                levelTiro++; 
+            }else if (life < 5)
+            {
+                life++;
+                vidaTexto.text = life.ToString();
+                
+            }else if(quantidadeDeEscudo < 5)
+            {
+                quantidadeDeEscudo++;
+                Debug.LogWarning($"Quantidade de escudos : {quantidadeDeEscudo}");
+                EscudoTexto.text = quantidadeDeEscudo.ToString();
+            }
+            else
+            {
+                Debug.LogWarning($"Ganhou pontos");
+                FindAnyObjectByType<SpawnEnemy>().GanhaPonto(100);
             }
             Destroy(other.gameObject);
         }
