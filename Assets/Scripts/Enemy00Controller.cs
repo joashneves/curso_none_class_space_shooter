@@ -26,7 +26,7 @@ public class Enemy00Controller : Enemy
         timerShoot -= Time.deltaTime;
         if ((timerShoot < 0) && sprite)
         {
-            timerShoot = Random.Range(1f, 2f);
+            timerShoot = Random.Range(2f, 4f);
             GameObject shooter = Instantiate(shoot, transform.position, transform.rotation);
             shooter.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0f, velocityShooter);
         }

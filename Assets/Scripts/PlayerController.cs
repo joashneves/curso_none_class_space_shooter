@@ -124,6 +124,8 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosionDeath, transform.position, transform.rotation);
             Destroy(gameObject);
+            var gameMananer = FindAnyObjectByType<GameManager>();
+            gameMananer.Inicio();
         }
         vidaTexto.text = life.ToString();
     }
