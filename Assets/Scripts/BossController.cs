@@ -106,6 +106,7 @@ public class BossController : Enemy
     }
     private void Tiro00()
     {
+         AudioSource.PlayClipAtPoint(meuSom, Vector3.zero);
         GameObject tiro00 = Instantiate(tiroUm, posTiroTres.position, transform.rotation);
         tiro00.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(0f, -velocityShooter);
 
@@ -119,6 +120,7 @@ public class BossController : Enemy
 
         if (player)
         {
+             AudioSource.PlayClipAtPoint(meuSom, Vector3.zero);
             GameObject shooter = Instantiate(tiroDois, posTiroDois.position, transform.rotation);
             // Encontrando o player na cena
             Vector2 direcao = player.transform.position - shooter.transform.position;

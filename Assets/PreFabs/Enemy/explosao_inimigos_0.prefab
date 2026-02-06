@@ -127,3 +127,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c799e9e27af15644a58c4b1f5321e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExplosaoController
+  explocaoSon: {fileID: 8300000, guid: 565c612ba8cb8fb4ba4306231b6082f3, type: 3}

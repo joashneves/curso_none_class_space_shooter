@@ -196,6 +196,7 @@ MonoBehaviour:
   velocityShooter: -2
   pontos: 5
   itemRate: 0.99
+  meuSom: {fileID: 8300000, guid: 519ce910f5bb81246ae9fad77c7d0ac3, type: 3}
   shoot: {fileID: 6771781074782398999, guid: f448bc1e7bd1b8645ac01821598435d0, type: 3}
   posShoot: {fileID: 3006097644924614357}
 --- !u!70 &6507599625846003731

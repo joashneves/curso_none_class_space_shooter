@@ -12,6 +12,8 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private GameObject bossAnimation;
     private bool criouBoss = false;
     private float esperaInimigos = 0f;
+    [SerializeField] private AudioClip musicaBoss;
+    [SerializeField] private AudioSource musica;
     [Header("Informações do UI")]
     [SerializeField] private Text pontosTexto;
 
@@ -43,6 +45,8 @@ public class SpawnEnemy : MonoBehaviour
         }
         if (!criouBoss && tempoDeEspera <= 0)
         {
+            musica.clip = musicaBoss;
+            musica.Play();
             GameObject animacaoBossObjeto = Instantiate(bossAnimation, Vector3.zero, transform.rotation);
             Destroy(animacaoBossObjeto, 6.2f);
             criouBoss = true;

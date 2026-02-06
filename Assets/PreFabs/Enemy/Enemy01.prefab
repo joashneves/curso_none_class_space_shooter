@@ -201,4 +201,5 @@ MonoBehaviour:
   velocityShooter: 3
   pontos: 10
   itemRate: 0.95
+  meuSom: {fileID: 8300000, guid: c84980229b0e72744a9ce51bc4dd0449, type: 3}
   yMax: 2.5

@@ -62,6 +62,10 @@ MonoBehaviour:
   levelTiro: 1
   vidaTexto: {fileID: 0}
   EscudoTexto: {fileID: 0}
+  meuSom: {fileID: 8300000, guid: c84980229b0e72744a9ce51bc4dd0449, type: 3}
+  somDaMORTE: {fileID: 8300000, guid: f06e7ac60bd5c0f47a04f4673f035c8a, type: 3}
+  somDoEscudo: {fileID: 8300000, guid: 4da7ed4fa3891114091d79a1d4e1d4ba, type: 3}
+  somDoEscudoAcabando: {fileID: 8300000, guid: b59b374d69626734b82fb03dbf17acd0, type: 3}
 --- !u!50 &7300164970171126178
 Rigidbody2D:
   serializedVersion: 5

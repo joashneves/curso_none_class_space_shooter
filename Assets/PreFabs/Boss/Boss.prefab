@@ -336,6 +336,7 @@ MonoBehaviour:
   velocityShooter: 3
   pontos: 200
   itemRate: 1
+  meuSom: {fileID: 8300000, guid: c84980229b0e72744a9ce51bc4dd0449, type: 3}
   lifeMax: 100
   estado: estado1
   myRigidbody: {fileID: 0}

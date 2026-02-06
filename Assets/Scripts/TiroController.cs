@@ -5,9 +5,12 @@ public class TiroController : MonoBehaviour
     [SerializeField] private GameObject impact;
     private Rigidbody2D myRigidbody;
     [SerializeField]private float velocity = 10f;
+
+   
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         myRigidbody = GetComponent<Rigidbody2D>();
         //myRigidbody.linearVelocity = new Vector2(0f, velocity);
         

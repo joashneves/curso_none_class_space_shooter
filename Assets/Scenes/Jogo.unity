@@ -479,10 +479,17 @@ PrefabInstance:
       propertyPath: EscudoTexto
       value: 
       objectReference: {fileID: 1135735096}
+    - target: {fileID: 9159764992080229641, guid: ce31f9b7c9fe7a345bf769a4f6e925d3, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2274938511186977801, guid: ce31f9b7c9fe7a345bf769a4f6e925d3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1233047120}
   m_SourcePrefab: {fileID: 100100000, guid: ce31f9b7c9fe7a345bf769a4f6e925d3, type: 3}
 --- !u!114 &1135735096 stripped
 MonoBehaviour:
@@ -5331,6 +5338,33 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!1 &1233047115 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2274938511186977801, guid: ce31f9b7c9fe7a345bf769a4f6e925d3, type: 3}
+  m_PrefabInstance: {fileID: 979055196}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1233047120
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1233047115}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 05bd50ddb5775e24da76d384e26917c2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1237222679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5565,87 +5599,21 @@ PrefabInstance:
       propertyPath: m_RenderPostProcessing
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7984501522770832458, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
+    - {fileID: -6004929735137689662, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2980073362541761523, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 696598694023065976}
-    - targetCorrespondingSourceObject: {fileID: 2980073362541761523, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
-      insertIndex: -1
       addedObject: {fileID: 696598694023065980}
   m_SourcePrefab: {fileID: 100100000, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
---- !u!4 &696598694023065974 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9013034626118731955, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
-  m_PrefabInstance: {fileID: 696598694023065973}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &696598694023065975 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2980073362541761523, guid: 79f764d34318c0c419c2062416d44b4d, type: 3}
   m_PrefabInstance: {fileID: 696598694023065973}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &696598694023065976
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 696598694023065975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.Postprocessing.Runtime::UnityEngine.Rendering.PostProcessing.PostProcessLayer
-  volumeTrigger: {fileID: 696598694023065974}
-  volumeLayer:
-    serializedVersion: 2
-    m_Bits: 4096
-  stopNaNPropagation: 1
-  finalBlitToCameraTarget: 0
-  antialiasingMode: 0
-  temporalAntialiasing:
-    jitterSpread: 0.75
-    sharpness: 0.25
-    stationaryBlending: 0.95
-    motionBlending: 0.85
-  subpixelMorphologicalAntialiasing:
-    quality: 2
-  fastApproximateAntialiasing:
-    fastMode: 0
-    keepAlpha: 0
-  fog:
-    enabled: 1
-    excludeSkybox: 1
-  debugLayer:
-    lightMeter:
-      width: 512
-      height: 256
-      showCurves: 1
-    histogram:
-      width: 512
-      height: 256
-      channel: 3
-    waveform:
-      exposure: 0.12
-      height: 256
-    vectorscope:
-      size: 256
-      exposure: 0.12
-    overlaySettings:
-      linearDepth: 0
-      motionColorIntensity: 4
-      motionGridSize: 64
-      colorBlindnessType: 0
-      colorBlindnessStrength: 1
-  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
-  m_ShowToolkit: 0
-  m_ShowCustomSorter: 0
-  breakBeforeColorGrading: 0
-  m_BeforeTransparentBundles: []
-  m_BeforeStackBundles: []
-  m_AfterStackBundles: []
 --- !u!114 &696598694023065980
 MonoBehaviour:
   m_ObjectHideFlags: 0

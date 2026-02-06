@@ -10,6 +10,9 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float velocityShooter;
     [SerializeField] protected int pontos;
     [SerializeField] protected float itemRate;
+    
+    [Header("Sons")]
+    [SerializeField]protected AudioClip meuSom;
     protected float timerShoot = 1f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

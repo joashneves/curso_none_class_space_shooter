@@ -21,6 +21,13 @@ public class PlayerController : MonoBehaviour
     [Header("Informações do UI")]
     [SerializeField] private Text vidaTexto;
     [SerializeField] private Text EscudoTexto;
+
+    [Header("Sons")]
+    [SerializeField]private AudioClip meuSom;
+    [SerializeField]private AudioClip somDaMORTE;
+    [SerializeField] private AudioClip somDoEscudo;
+    [SerializeField] private AudioClip somDoEscudoAcabando;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -55,6 +62,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Shield") && !escudoAtual && quantidadeDeEscudo > 0)
         {
+            AudioSource.PlayClipAtPoint(somDoEscudo, new Vector3(0f,0f,-10f));
             escudoAtual = Instantiate(escudo, transform.position, transform.rotation);
             quantidadeDeEscudo--;
             EscudoTexto.text = quantidadeDeEscudo.ToString();
@@ -65,6 +73,7 @@ public class PlayerController : MonoBehaviour
             if (escudoAtual) escudoAtual.transform.position = transform.position;
             if (escudoTempo > 6.2f)
             {
+                AudioSource.PlayClipAtPoint(somDoEscudo, new Vector3(0f,0f,-10f));
                 Destroy(escudoAtual);
                 escudoTempo = 0f;
             }
@@ -75,6 +84,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+             AudioSource.PlayClipAtPoint(meuSom, Vector3.zero);
             switch (levelTiro)
             {
                 case 1:
@@ -122,6 +132,7 @@ public class PlayerController : MonoBehaviour
         life -= damage;
         if (life <= 0)
         {
+            AudioSource.PlayClipAtPoint(meuSom, new Vector3(0f,0f,-10f));
             Instantiate(explosionDeath, transform.position, transform.rotation);
             Destroy(gameObject);
             var gameMananer = FindAnyObjectByType<GameManager>();

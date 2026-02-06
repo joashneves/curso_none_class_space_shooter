@@ -50,6 +50,7 @@ public class Enemy01Controller : Enemy
         {
             if ((timerShoot < 0) && sprite)
             {
+                AudioSource.PlayClipAtPoint(meuSom, Vector3.zero);
                 timerShoot = Random.Range(1f, 2f);
                 GameObject shooter = Instantiate(shoot, transform.position, transform.rotation);
                 // Encontrando o player na cena
