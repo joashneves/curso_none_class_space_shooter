@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpawnEnemy : MonoBehaviour
 {
@@ -11,11 +12,13 @@ public class SpawnEnemy : MonoBehaviour
     [SerializeField] private GameObject bossAnimation;
     private bool criouBoss = false;
     private float esperaInimigos = 0f;
+    [Header("Informações do UI")]
+    [SerializeField] private Text pontosTexto;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
+        pontosTexto.text = pontos.ToString();
 
     }
 
@@ -52,6 +55,7 @@ public class SpawnEnemy : MonoBehaviour
     public void GanhaPonto(int pontos)
     {
         this.pontos += pontos;
+        pontosTexto.text = this.pontos.ToString();
         if(this.pontos > baseLevel * level)
         {
             level ++;

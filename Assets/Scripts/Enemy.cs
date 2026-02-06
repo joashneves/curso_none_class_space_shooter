@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
             {
                 Destroy(gameObject);
                 Instantiate(explosion, transform.position, transform.rotation);
-                DropaItem();
+                if(powerUp)DropaItem();
                 FindAnyObjectByType<SpawnEnemy>().GanhaPonto(pontos);
             }
         }

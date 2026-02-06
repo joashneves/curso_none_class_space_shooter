@@ -1,6 +1,6 @@
 using System;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float velocity = 5f;
@@ -18,11 +18,15 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D myRigidbody;
     private GameObject escudoAtual;
     private float escudoTempo;
+    [Header("Informações do UI")]
+    [SerializeField] private Text vidaTexto;
+    [SerializeField] private Text EscudoTexto;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-
+        vidaTexto.text = life.ToString();
+         EscudoTexto.text = quantidadeDeEscudo.ToString();
     }
 
     // Update is called once per frame
@@ -30,7 +34,7 @@ public class PlayerController : MonoBehaviour
     {
         Moving();
         Shooter();
-
+        CriaEscudo();
     }
     private void Moving()
     {
@@ -46,6 +50,26 @@ public class PlayerController : MonoBehaviour
         float meuX = Mathf.Clamp(transform.position.x, -xLimite, xLimite);
         float meuY = Mathf.Clamp(transform.position.y, -yLimite, yLimite);
         transform.position = new Vector3(meuX, meuY, transform.position.z);
+    }
+    private void CriaEscudo()
+    {
+        if (Input.GetButtonDown("Shield") && !escudoAtual && quantidadeDeEscudo > 0)
+        {
+            escudoAtual = Instantiate(escudo, transform.position, transform.rotation);
+            quantidadeDeEscudo--;
+            EscudoTexto.text = quantidadeDeEscudo.ToString();
+        }
+        if (escudoAtual)
+        {
+            escudoTempo += Time.deltaTime;
+            if (escudoAtual) escudoAtual.transform.position = transform.position;
+            if (escudoTempo > 6.2f)
+            {
+                Destroy(escudoAtual);
+                escudoTempo = 0f;
+            }
+        }
+
     }
     private void Shooter()
     {
@@ -65,44 +89,25 @@ public class PlayerController : MonoBehaviour
                     CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
                     CriarTiro(myShot, posShoot.position);
                     CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
-                break;
+                    break;
                 case 4:
                     CriarTiro(myShot2, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f));
                     CriarTiro(myShot, posShoot.position);
-                    CriarTiroSecundario(myShot,  new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f), -60);
-                    CriarTiroSecundario(myShot,  new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f), 60);
+                    CriarTiroSecundario(myShot, new Vector3(posShoot.position.x - 0.5f, posShoot.position.y - 0.5f), -60);
+                    CriarTiroSecundario(myShot, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f), 60);
                     CriarTiro(myShot2, new Vector3(posShoot.position.x + 0.5f, posShoot.position.y - 0.5f));
-                break;
-            }
-        }
-        if (Input.GetButtonDown("Shield") && !escudoAtual && quantidadeDeEscudo > 0)
-        {
-            escudoAtual = Instantiate(escudo, transform.position, transform.rotation);
-            quantidadeDeEscudo--;
-        }
-        if (escudoAtual)
-        {
-            escudoTempo += Time.deltaTime;
-            if (escudoAtual) escudoAtual.transform.position = transform.position;
-            if (escudoTempo > 6.2f)
-            {
-                Destroy(escudoAtual);
-                escudoTempo = 0f;
+                    break;
             }
         }
 
     }
     private void CriarTiroSecundario(GameObject tiroCriado, Vector3 pos, float rotacao)
     {
-        //Quaternion rotation = transform.rotation;
-        // Pega rotacao
-        GameObject shooter = Instantiate(tiroCriado, pos, transform.rotation);
-        shooter.transform.rotation = Quaternion.Euler(0f,0f, rotacao);
-        int positivoOuNegativo = Math.Sign(rotacao);
-        shooter.GetComponent<Transform>().rotation = Quaternion.Euler(0f, 0f, rotacao);
-        shooter.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(velocityShooter* positivoOuNegativo, velocityShooter);
-
-
+        GameObject shooter = Instantiate(tiroCriado, pos, transform.rotation); // Inicia o objsto
+        shooter.transform.rotation = Quaternion.Euler(0f, 0f, rotacao); // Coloca o objeto na rotação
+        int positivoOuNegativo = Math.Sign(rotacao); // Verifica se o numero é positivo ou negativo
+                                                     // Tenta pegar o transforme para mudar a sprite em si
+        shooter.GetComponent<Rigidbody2D>().linearVelocity = new Vector2(velocityShooter * positivoOuNegativo, velocityShooter); // Muda a direção do player
     }
     private void CriarTiro(GameObject tiroCriado, Vector3 pos)
     {
@@ -115,12 +120,12 @@ public class PlayerController : MonoBehaviour
     {
         Debug.LogWarning($"Perdeu vida {life}");
         life -= damage;
-        if (life < 0)
+        if (life <= 0)
         {
             Instantiate(explosionDeath, transform.position, transform.rotation);
             Destroy(gameObject);
-
         }
+        vidaTexto.text = life.ToString();
     }
     void OnTriggerEnter2D(Collider2D other)
     {

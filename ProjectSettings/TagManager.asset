@@ -21,7 +21,7 @@ TagManager:
   - TiroPlayer
   - TiroInimigo
   - PowerUp
-  - 
+  - BossLayer
   - 
   - 
   - 
@@ -57,6 +57,9 @@ TagManager:
     locked: 0
   - name: powerUp
     uniqueID: 1796424489
+    locked: 0
+  - name: Ui
+    uniqueID: 349387281
     locked: 0
   m_RenderingLayers:
   - Default
