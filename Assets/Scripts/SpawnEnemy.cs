@@ -54,11 +54,12 @@ public class SpawnEnemy : MonoBehaviour
     }
     public void GanhaPonto(int pontos)
     {
-        this.pontos += pontos;
+        this.pontos += pontos * level;
         pontosTexto.text = this.pontos.ToString();
         if(this.pontos > baseLevel * level)
         {
             level ++;
+            baseLevel *= 2;
         }
     }
     private bool ChecarInimigo(Vector3 posicao, Vector3 size)

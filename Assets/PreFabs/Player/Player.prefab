@@ -53,12 +53,15 @@ MonoBehaviour:
   myShot2: {fileID: 6336001804979317882, guid: 339b6ffa5ca235245899a37c9404d24d, type: 3}
   posShoot: {fileID: 8576315375808295862}
   escudo: {fileID: 2436179590383778583, guid: 05128b2000da725489c205a61e670583, type: 3}
+  quantidadeDeEscudo: 3
   life: 5
   explosionDeath: {fileID: 846491494180254309, guid: 1d78c7e161b0e0e45924091cf08fbf6d, type: 3}
   velocityShooter: 10
   xLimite: 0
   yLimite: 0
   levelTiro: 1
+  vidaTexto: {fileID: 0}
+  EscudoTexto: {fileID: 0}
 --- !u!50 &7300164970171126178
 Rigidbody2D:
   serializedVersion: 5
@@ -133,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5901840833455851176}
   - component: {fileID: 9159764992080229641}
+  - component: {fileID: 3959013358402881770}
   m_Layer: 7
   m_Name: player_0
   m_TagString: Untagged
@@ -214,6 +218,28 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &3959013358402881770
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3063928210289616349}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0396ac8127f2ec2489245f8a19f10f27, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &8191609534913375353
 GameObject:
   m_ObjectHideFlags: 0

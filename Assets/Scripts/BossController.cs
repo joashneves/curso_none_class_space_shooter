@@ -163,4 +163,11 @@ public class BossController : Enemy
             esperaEstado -= Time.deltaTime;
         }
     }
+    private void AumentaDificuldade()
+    {
+        if(life <= lifeMax / 2)
+        {
+            delayShoot = 0.5f;
+        }
+    }
 }
